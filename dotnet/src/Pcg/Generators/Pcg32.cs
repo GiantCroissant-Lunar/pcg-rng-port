@@ -58,6 +58,20 @@ public struct Pcg32 : IPcgRng<uint>, ISettableStream<ulong>, IEquatable<Pcg32>
     public readonly ulong Stream => _engine.Stream;
 
     /// <summary>
+    /// Gets or sets the internal state. Used for serialization/snapshots.
+    /// </summary>
+    public ulong State
+    {
+        readonly get => _engine.State;
+        set => _engine.State = value;
+    }
+
+    /// <summary>
+    /// Gets the increment value (derived from stream). Used for serialization/snapshots.
+    /// </summary>
+    public readonly ulong Increment => _engine.Increment;
+
+    /// <summary>
     /// Sets the stream ID. This will change the sequence but not the state.
     /// </summary>
     public void SetStream(ulong stream)
