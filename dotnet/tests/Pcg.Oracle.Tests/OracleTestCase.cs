@@ -63,6 +63,27 @@ public class SequenceEntry
             : Value;
         return Convert.ToUInt64(hex, 16);
     }
+
+    public UInt128 AsUInt128()
+    {
+        string hex = Value.StartsWith("0x", StringComparison.OrdinalIgnoreCase)
+            ? Value[2..]
+            : Value;
+
+        if (hex.Length > 16)
+        {
+            string hiHex = hex[..(hex.Length - 16)];
+            string loHex = hex[(hex.Length - 16)..];
+            ulong hi = Convert.ToUInt64(hiHex, 16);
+            ulong lo = Convert.ToUInt64(loHex, 16);
+            return new UInt128(hi, lo);
+        }
+        else
+        {
+            ulong lo = Convert.ToUInt64(hex, 16);
+            return new UInt128(0UL, lo);
+        }
+    }
 }
 
 /// <summary>

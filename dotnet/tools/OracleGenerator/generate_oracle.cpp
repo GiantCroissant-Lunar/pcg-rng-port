@@ -107,6 +107,112 @@ json generate_pcg32_tests() {
     return result;
 }
 
+// Generate test cases for pcg8_once_insecure
+json generate_pcg8_once_insecure_tests() {
+    json result;
+    result["generator"] = "pcg8_once_insecure";
+    result["description"] = "setseq_rxs_m_xs_8_8 - 8-bit once_insecure generator (RXS M XS)";
+
+    json testCases = json::array();
+
+    // Standard test case
+    {
+        pcg8_once_insecure rng(42u, 7u);
+        json tc;
+        tc["name"] = "seed_42_stream_7";
+        tc["seed"] = "42";
+        tc["stream"] = "7";
+        tc["sequence"] = generate_sequence(rng, 64);
+        testCases.push_back(tc);
+    }
+
+    // Zero seed/stream
+    {
+        pcg8_once_insecure rng(0u, 0u);
+        json tc;
+        tc["name"] = "seed_0_stream_0";
+        tc["seed"] = "0";
+        tc["stream"] = "0";
+        tc["sequence"] = generate_sequence(rng, 32);
+        testCases.push_back(tc);
+    }
+
+    result["testCases"] = testCases;
+    return result;
+}
+
+// Generate test cases for pcg16_once_insecure
+json generate_pcg16_once_insecure_tests() {
+    json result;
+    result["generator"] = "pcg16_once_insecure";
+    result["description"] = "setseq_rxs_m_xs_16_16 - 16-bit once_insecure generator (RXS M XS)";
+
+    json testCases = json::array();
+
+    // Standard test case
+    {
+        pcg16_once_insecure rng(42u, 7u);
+        json tc;
+        tc["name"] = "seed_42_stream_7";
+        tc["seed"] = "42";
+        tc["stream"] = "7";
+        tc["sequence"] = generate_sequence(rng, 64);
+        testCases.push_back(tc);
+    }
+
+    // Zero seed/stream
+    {
+        pcg16_once_insecure rng(0u, 0u);
+        json tc;
+        tc["name"] = "seed_0_stream_0";
+        tc["seed"] = "0";
+        tc["stream"] = "0";
+        tc["sequence"] = generate_sequence(rng, 32);
+        testCases.push_back(tc);
+    }
+
+    result["testCases"] = testCases;
+    return result;
+}
+
+// Generate test cases for pcg128_once_insecure
+json generate_pcg128_once_insecure_tests() {
+    json result;
+    result["generator"] = "pcg128_once_insecure";
+    result["description"] = "setseq_xsl_rr_rr_128_128 - 128-bit once_insecure generator";
+
+    json testCases = json::array();
+
+    // Simple seed/stream using low 64 bits
+    {
+        pcg128_once_insecure rng(42u, 54u);
+        json tc;
+        tc["name"] = "seed_42_stream_54";
+        tc["seedHi"] = "0";
+        tc["seedLo"] = "42";
+        tc["streamHi"] = "0";
+        tc["streamLo"] = "54";
+        tc["sequence"] = generate_sequence(rng, 64);
+        testCases.push_back(tc);
+    }
+
+    // Zero seed/stream
+    {
+        pcg128_once_insecure rng(0u, 0u);
+        json tc;
+        tc["name"] = "seed_0_stream_0";
+        tc["seedHi"] = "0";
+        tc["seedLo"] = "0";
+        tc["streamHi"] = "0";
+        tc["streamLo"] = "0";
+        tc["sequence"] = generate_sequence(rng, 32);
+        testCases.push_back(tc);
+    }
+
+    result["testCases"] = testCases;
+    return result;
+}
+
 // Generate test cases for pcg32_oneseq
 json generate_pcg32_oneseq_tests() {
     json result;
@@ -238,6 +344,28 @@ int main() {
         std::ofstream file("oracle_data/pcg64.json");
         file << std::setw(2) << data << std::endl;
         std::cout << "  Generated pcg64.json" << std::endl;
+    }
+
+    // Generate once_insecure tests
+    {
+        json data = generate_pcg8_once_insecure_tests();
+        std::ofstream file("oracle_data/pcg8_once_insecure.json");
+        file << std::setw(2) << data << std::endl;
+        std::cout << "  Generated pcg8_once_insecure.json" << std::endl;
+    }
+
+    {
+        json data = generate_pcg16_once_insecure_tests();
+        std::ofstream file("oracle_data/pcg16_once_insecure.json");
+        file << std::setw(2) << data << std::endl;
+        std::cout << "  Generated pcg16_once_insecure.json" << std::endl;
+    }
+
+    {
+        json data = generate_pcg128_once_insecure_tests();
+        std::ofstream file("oracle_data/pcg128_once_insecure.json");
+        file << std::setw(2) << data << std::endl;
+        std::cout << "  Generated pcg128_once_insecure.json" << std::endl;
     }
     
     std::cout << "Done!" << std::endl;
