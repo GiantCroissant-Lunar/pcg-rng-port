@@ -1,0 +1,18 @@
+{
+  "generator": "pcg64_fast",
+  "description": "mcg_xsl_rr_128_64 - Fast 64-bit MCG generator",
+  "testCases": [
+    {
+      "name": "seed_42",
+      "seed": "42",
+      "sequence": [
+        { "call": 1, "value": "0x63b4a3a813ce700a" },
+        { "call": 2, "value": "0x382954200617ab24" },
+        { "call": 3, "value": "0xa7fd85ae3fe950ce" },
+        { "call": 4, "value": "0xd715286aa2887737" },
+        { "call": 5, "value": "0x60c92fee2e59f32c" },
+        { "call": 6, "value": "0x84c4e96beff30017" }
+      ]
+    }
+  ]
+}

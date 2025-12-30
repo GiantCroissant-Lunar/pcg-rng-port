@@ -1,0 +1,18 @@
+{
+  "generator": "pcg64_oneseq",
+  "description": "oneseq_xsl_rr_128_64 - 64-bit generator with fixed stream",
+  "testCases": [
+    {
+      "name": "seed_42",
+      "seed": "42",
+      "sequence": [
+        { "call": 1, "value": "0x287472e87ff5705a" },
+        { "call": 2, "value": "0xbbd190b04ed0b545" },
+        { "call": 3, "value": "0xb6cee3580db14880" },
+        { "call": 4, "value": "0xbf5f7d7e4c3d1864" },
+        { "call": 5, "value": "0x734eedbe7e50bbc5" },
+        { "call": 6, "value": "0xa5b6b5f867691c77" }
+      ]
+    }
+  ]
+}

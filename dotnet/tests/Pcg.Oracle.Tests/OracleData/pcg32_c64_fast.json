@@ -1,0 +1,18 @@
+{
+  "generator": "pcg32_c64_fast",
+  "description": "ext_mcg_xsh_rs_64_32<6,32,false> - 32-bit extended generator with k=64 (C-variant, fast MCG)",
+  "testCases": [
+    {
+      "name": "seed_42",
+      "seed": "42",
+      "sequence": [
+        { "call": 1, "value": "0x24b21aff" },
+        { "call": 2, "value": "0x7d390e28" },
+        { "call": 3, "value": "0x82e2dfab" },
+        { "call": 4, "value": "0x0a2ae49e" },
+        { "call": 5, "value": "0x3b9b07d7" },
+        { "call": 6, "value": "0xd6c66bd1" }
+      ]
+    }
+  ]
+}

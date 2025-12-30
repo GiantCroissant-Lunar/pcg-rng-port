@@ -1,0 +1,18 @@
+{
+  "generator": "pcg64_k32_oneseq",
+  "description": "ext_oneseq_xsl_rr_128_64<5,128,true> - 64-bit extended generator with k=32 (one-sequence)",
+  "testCases": [
+    {
+      "name": "seed_42",
+      "seed": "42",
+      "sequence": [
+        { "call": 1, "value": "0x16877a0956ab7ab2" },
+        { "call": 2, "value": "0x6c8007d328f335a7" },
+        { "call": 3, "value": "0x38a4f59634854ee6" },
+        { "call": 4, "value": "0xcc6f1d46b7d5fb7a" },
+        { "call": 5, "value": "0x18042420cc04c23d" },
+        { "call": 6, "value": "0x60251b7df26b98db" }
+      ]
+    }
+  ]
+}

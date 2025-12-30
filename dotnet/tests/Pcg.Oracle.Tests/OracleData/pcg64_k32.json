@@ -1,0 +1,19 @@
+{
+  "generator": "pcg64_k32",
+  "description": "ext_setseq_xsl_rr_128_64<5,16,true> - 64-bit extended generator with k=32",
+  "testCases": [
+    {
+      "name": "seed_42_stream_54",
+      "seed": "42",
+      "stream": "54",
+      "sequence": [
+        { "call": 1, "value": "0x2dcbaf9339a0a8db" },
+        { "call": 2, "value": "0xa5486595bb7ecc26" },
+        { "call": 3, "value": "0x800934faba0d0759" },
+        { "call": 4, "value": "0x7eff732dee5b72cb" },
+        { "call": 5, "value": "0x44760d3bb06156f9" },
+        { "call": 6, "value": "0x6f3622730aff6c44" }
+      ]
+    }
+  ]
+}

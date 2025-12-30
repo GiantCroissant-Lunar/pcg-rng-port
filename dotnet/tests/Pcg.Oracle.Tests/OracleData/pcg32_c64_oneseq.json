@@ -1,0 +1,18 @@
+{
+  "generator": "pcg32_c64_oneseq",
+  "description": "ext_oneseq_xsh_rs_64_32<6,32,false> - 32-bit extended generator with k=64 (C-variant, one-sequence)",
+  "testCases": [
+    {
+      "name": "seed_42",
+      "seed": "42",
+      "sequence": [
+        { "call": 1, "value": "0x77b22db0" },
+        { "call": 2, "value": "0xc0d701de" },
+        { "call": 3, "value": "0xa73ff12e" },
+        { "call": 4, "value": "0x7bec2cfc" },
+        { "call": 5, "value": "0x94682a9d" },
+        { "call": 6, "value": "0x493de263" }
+      ]
+    }
+  ]
+}

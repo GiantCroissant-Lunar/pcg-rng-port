@@ -1,0 +1,19 @@
+{
+  "generator": "pcg32",
+  "description": "setseq_xsh_rr_64_32 - Default 32-bit generator with settable stream",
+  "testCases": [
+    {
+      "name": "seed_42_stream_54",
+      "seed": "42",
+      "stream": "54",
+      "sequence": [
+        { "call": 1, "value": "0xa15c02b7" },
+        { "call": 2, "value": "0x7b47f409" },
+        { "call": 3, "value": "0xba1d3330" },
+        { "call": 4, "value": "0x83d2f293" },
+        { "call": 5, "value": "0xbfa4784b" },
+        { "call": 6, "value": "0xcbed606e" }
+      ]
+    }
+  ]
+}

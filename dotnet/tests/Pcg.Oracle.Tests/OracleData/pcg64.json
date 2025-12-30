@@ -1,0 +1,21 @@
+{
+  "generator": "pcg64",
+  "description": "setseq_xsl_rr_128_64 - Default 64-bit generator with settable stream",
+  "testCases": [
+    {
+      "name": "seed_42_stream_54",
+      "seedHi": "0",
+      "seedLo": "42",
+      "streamHi": "0",
+      "streamLo": "54",
+      "sequence": [
+        { "call": 1, "value": "0x86b1da1d72062b68" },
+        { "call": 2, "value": "0x1304aa46c9853d39" },
+        { "call": 3, "value": "0xa3670e9e0dd50358" },
+        { "call": 4, "value": "0xf9090e529a7dae00" },
+        { "call": 5, "value": "0xc85b9fd837996f2c" },
+        { "call": 6, "value": "0x606121f8e3919196" }
+      ]
+    }
+  ]
+}
