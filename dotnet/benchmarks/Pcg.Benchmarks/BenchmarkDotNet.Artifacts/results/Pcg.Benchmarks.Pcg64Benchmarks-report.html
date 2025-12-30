@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Pcg.Benchmarks.Pcg64Benchmarks-20251202-233912</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.11, Windows 11 (10.0.26200.7171)
+AMD Ryzen 5 5600X, 1 CPU, 12 logical and 6 physical cores
+.NET SDK 9.0.307
+  [Host]     : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method       </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Pcg64_Next</td><td>2.006 ns</td><td>0.2265 ns</td><td>0.6678 ns</td><td>1.909 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Random_Next</td><td>2.660 ns</td><td>0.1327 ns</td><td>0.3913 ns</td><td>2.569 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64_Next_Bounded</td><td>1.666 ns</td><td>0.0630 ns</td><td>0.1382 ns</td><td>1.645 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Random_Next_Bounded</td><td>3.536 ns</td><td>0.1288 ns</td><td>0.3797 ns</td><td>3.581 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64_NextDouble</td><td>10.586 ns</td><td>0.4068 ns</td><td>1.1930 ns</td><td>10.714 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Random_NextDouble</td><td>3.386 ns</td><td>0.2038 ns</td><td>0.6008 ns</td><td>3.518 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64_NextBytes</td><td>262.505 ns</td><td>15.2404 ns</td><td>44.9367 ns</td><td>249.492 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64_Shuffle</td><td>167.136 ns</td><td>5.1913 ns</td><td>15.3066 ns</td><td>163.265 ns</td><td>0.0081</td><td>136 B</td>
+</tr><tr><td>Random_Shuffle</td><td>126.250 ns</td><td>2.5177 ns</td><td>3.2737 ns</td><td>124.984 ns</td><td>0.0052</td><td>88 B</td>
+</tr></tbody></table>
+</body>
+</html>

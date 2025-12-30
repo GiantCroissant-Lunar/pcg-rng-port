@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Pcg.Benchmarks.Pcg32Benchmarks-20251202-222821</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.11, Windows 11 (10.0.26200.7171)
+AMD Ryzen 5 5600X, 1 CPU, 12 logical and 6 physical cores
+.NET SDK 9.0.307
+  [Host]     : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method       </th><th>Mean </th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Pcg32_Next</td><td>0.5043 ns</td><td>0.0419 ns</td><td>0.1216 ns</td><td>0.4965 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Random_Next</td><td>2.6352 ns</td><td>0.0847 ns</td><td>0.2483 ns</td><td>2.6231 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg32_Next_Bounded</td><td>0.8852 ns</td><td>0.0450 ns</td><td>0.0909 ns</td><td>0.8787 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Random_Next_Bounded</td><td>3.0326 ns</td><td>0.1139 ns</td><td>0.3232 ns</td><td>2.9674 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg32_NextDouble</td><td>4.6204 ns</td><td>0.1527 ns</td><td>0.4281 ns</td><td>4.5906 ns</td><td>0.0019</td><td>32 B</td>
+</tr><tr><td>Random_NextDouble</td><td>2.9733 ns</td><td>0.1576 ns</td><td>0.4648 ns</td><td>2.9319 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg32_NextBytes</td><td>262.4496 ns</td><td>16.5283 ns</td><td>48.7341 ns</td><td>247.2055 ns</td><td>0.0019</td><td>32 B</td>
+</tr><tr><td>Random_NextBytes</td><td>732.6916 ns</td><td>16.5657 ns</td><td>48.3231 ns</td><td>741.5986 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg32_Shuffle</td><td>158.6352 ns</td><td>6.3735 ns</td><td>18.7925 ns</td><td>159.2481 ns</td><td>0.0072</td><td>120 B</td>
+</tr><tr><td>Random_Shuffle</td><td>124.1412 ns</td><td>2.4745 ns</td><td>2.6476 ns</td><td>124.1043 ns</td><td>0.0052</td><td>88 B</td>
+</tr></tbody></table>
+</body>
+</html>

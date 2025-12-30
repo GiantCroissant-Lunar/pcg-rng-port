@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Pcg.Benchmarks.Pcg64ExtendedBenchmarks-20251202-234854</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.11, Windows 11 (10.0.26200.7171)
+AMD Ryzen 5 5600X, 1 CPU, 12 logical and 6 physical cores
+.NET SDK 9.0.307
+  [Host]     : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.10 (8.0.1024.46610), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method               </th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Pcg64K32Oneseq_Next</td><td>2.123 ns</td><td>0.1244 ns</td><td>0.3628 ns</td><td>2.086 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64K32Fast_Next</td><td>2.786 ns</td><td>0.0875 ns</td><td>0.2438 ns</td><td>2.747 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64C32Oneseq_Next</td><td>1.143 ns</td><td>0.0557 ns</td><td>0.1457 ns</td><td>1.120 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64C32Fast_Next</td><td>1.034 ns</td><td>0.0468 ns</td><td>0.1086 ns</td><td>1.006 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64K32Oneseq_Next_Bounded</td><td>2.936 ns</td><td>0.1761 ns</td><td>0.5192 ns</td><td>3.002 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64K32Fast_Next_Bounded</td><td>2.348 ns</td><td>0.1429 ns</td><td>0.4214 ns</td><td>2.309 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64C32Oneseq_Next_Bounded</td><td>2.084 ns</td><td>0.0683 ns</td><td>0.1543 ns</td><td>2.042 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64C32Fast_Next_Bounded</td><td>2.098 ns</td><td>0.1557 ns</td><td>0.4592 ns</td><td>2.167 ns</td><td>-</td><td>-</td>
+</tr><tr><td>Pcg64K32Oneseq_NextDouble</td><td>13.197 ns</td><td>0.3703 ns</td><td>1.0917 ns</td><td>13.222 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64K32Fast_NextDouble</td><td>12.423 ns</td><td>0.3569 ns</td><td>1.0411 ns</td><td>12.317 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64C32Oneseq_NextDouble</td><td>13.326 ns</td><td>0.4442 ns</td><td>1.3099 ns</td><td>13.093 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64C32Fast_NextDouble</td><td>11.812 ns</td><td>0.4824 ns</td><td>1.4224 ns</td><td>11.547 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64K32Oneseq_NextBytes</td><td>252.912 ns</td><td>10.5586 ns</td><td>31.1322 ns</td><td>254.687 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64K32Fast_NextBytes</td><td>247.486 ns</td><td>11.0208 ns</td><td>32.3222 ns</td><td>240.907 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64C32Oneseq_NextBytes</td><td>287.296 ns</td><td>13.8620 ns</td><td>40.8723 ns</td><td>288.632 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64C32Fast_NextBytes</td><td>267.664 ns</td><td>9.0273 ns</td><td>26.6172 ns</td><td>270.388 ns</td><td>0.0029</td><td>48 B</td>
+</tr><tr><td>Pcg64K32Oneseq_Shuffle</td><td>181.013 ns</td><td>8.6307 ns</td><td>25.4478 ns</td><td>174.713 ns</td><td>0.0081</td><td>136 B</td>
+</tr><tr><td>Pcg64K32Fast_Shuffle</td><td>175.534 ns</td><td>6.1581 ns</td><td>18.1572 ns</td><td>169.686 ns</td><td>0.0081</td><td>136 B</td>
+</tr><tr><td>Pcg64C32Oneseq_Shuffle</td><td>147.892 ns</td><td>2.9878 ns</td><td>5.8276 ns</td><td>146.458 ns</td><td>0.0081</td><td>136 B</td>
+</tr><tr><td>Pcg64C32Fast_Shuffle</td><td>139.938 ns</td><td>2.6729 ns</td><td>4.2394 ns</td><td>138.907 ns</td><td>0.0081</td><td>136 B</td>
+</tr></tbody></table>
+</body>
+</html>
