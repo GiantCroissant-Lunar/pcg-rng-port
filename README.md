@@ -1,5 +1,9 @@
 ## PCG RNG for .NET
 
+[![License](https://img.shields.io/badge/License-Apache%202.0%20OR%20MIT-blue.svg)](LICENSE-APACHE.txt)
+[![.NET](https://img.shields.io/badge/.NET-9.0-purple.svg)](https://dotnet.microsoft.com/)
+[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+
 This repository contains a .NET port of the PCG (Permuted Congruential Generator) family of random number generators.
 
 The core library lives under `dotnet/src/Pcg` and provides:
@@ -113,3 +117,23 @@ Run the full test suite from the `dotnet` directory:
 dotnet test
 ```
 
+## License
+
+This project is dual-licensed under your choice of:
+
+- **Apache License 2.0** ([LICENSE-APACHE.txt](LICENSE-APACHE.txt))
+- **MIT License** ([LICENSE-MIT.txt](LICENSE-MIT.txt))
+
+You may use this software under the terms of either license.
+
+## Credits
+
+This is a .NET port of the [PCG Random Number Generator](https://www.pcg-random.org/) created by Melissa O'Neill.
+
+- Original PCG algorithm and C++ implementation: Melissa O'Neill
+- PCG website: https://www.pcg-random.org/
+- Reference C++ implementation: https://github.com/imneme/pcg-cpp
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
