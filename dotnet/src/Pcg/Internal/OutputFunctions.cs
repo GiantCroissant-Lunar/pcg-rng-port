@@ -78,6 +78,58 @@ internal static class OutputFunctions
 
     /// <summary>
     /// RXS M XS: Random XorShift, Multiply, XorShift.
+    /// 8-bit version used by pcg8_once_insecure.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static byte RxsMXs8(byte state)
+    {
+        const int bits = 8;
+        const int opbits = 2;
+        const int mask = (1 << opbits) - 1;
+        const byte mcgMultiplier = 217;
+
+        int internalState = state;
+        int rshift = opbits != 0
+            ? (internalState >> (bits - opbits)) & mask
+            : 0;
+
+        int totalShift = opbits + rshift;
+        internalState ^= internalState >> totalShift;
+        internalState = unchecked(internalState * mcgMultiplier) & 0xFF;
+
+        int result = internalState & 0xFF;
+        result ^= result >> ((2 * bits + 2) / 3);
+        return (byte)result;
+    }
+
+    /// <summary>
+    /// RXS M XS: Random XorShift, Multiply, XorShift.
+    /// 16-bit version used by pcg16_once_insecure.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ushort RxsMXs16(ushort state)
+    {
+        const int bits = 16;
+        const int opbits = 3;
+        const int mask = (1 << opbits) - 1;
+        const ushort mcgMultiplier = 62169;
+
+        int internalState = state;
+        int rshift = opbits != 0
+            ? (internalState >> (bits - opbits)) & mask
+            : 0;
+
+        int totalShift = opbits + rshift;
+        internalState ^= internalState >> totalShift;
+        internalState = unchecked(internalState * mcgMultiplier) & 0xFFFF;
+
+        int result = internalState & 0xFFFF;
+        result ^= result >> ((2 * bits + 2) / 3);
+        return (ushort)result;
+    }
+
+    /// <summary>
+    /// RXS M XS: Random XorShift, Multiply, XorShift.
     /// Most statistically powerful output function.
     /// Used by "once insecure" variants where state = output type.
     /// 32-bit version.
