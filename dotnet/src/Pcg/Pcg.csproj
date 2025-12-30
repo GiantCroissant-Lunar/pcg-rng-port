@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    
+    <!-- Package metadata -->
+    <PackageId>Pcg.Random</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>PCG-RNG-Port Contributors</Authors>
+    <Description>PCG (Permuted Congruential Generator) random number generators for .NET, including 32/64-bit variants, multiple streams, seekable sequences, and a System.Random-compatible facade.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>random;rng;pcg;prng;generator</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    
+    <!-- Build settings -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" Condition="Exists('..\..\README.md')" />
+  </ItemGroup>
+
+</Project>
