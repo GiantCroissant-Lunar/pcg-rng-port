@@ -37,3 +37,9 @@ TestResults/
 
 # CMake build directories
 tools/OracleGenerator/build/
+
+# Temporary files
+tmpclaude-*
+
+# BenchmarkDotNet artifacts
+BenchmarkDotNet.Artifacts/

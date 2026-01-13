@@ -1,3 +1,7 @@
 .vscode/
 
 ref-projects/
+
+# Temporary files
+tmpclaude-*
+docs/_inbox/
