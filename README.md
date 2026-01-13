@@ -1,8 +1,10 @@
 ## PCG RNG for .NET
 
+[![CI](https://github.com/GiantCroissant-Lunar/pcg-rng-port/actions/workflows/ci.yml/badge.svg)](https://github.com/GiantCroissant-Lunar/pcg-rng-port/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0%20OR%20MIT-blue.svg)](LICENSE-APACHE.txt)
-[![.NET](https://img.shields.io/badge/.NET-9.0-purple.svg)](https://dotnet.microsoft.com/)
-[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+[![.NET 8.0](https://img.shields.io/badge/.NET-8.0-512bd4.svg)](https://dotnet.microsoft.com/)
+[![.NET 9.0](https://img.shields.io/badge/.NET-9.0-512bd4.svg)](https://dotnet.microsoft.com/)
+[![.NET Standard 2.1](https://img.shields.io/badge/.NET%20Standard-2.1-512bd4.svg)](https://dotnet.microsoft.com/)
 
 This repository contains a .NET port of the PCG (Permuted Congruential Generator) family of random number generators.
 
