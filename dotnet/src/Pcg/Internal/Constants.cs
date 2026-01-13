@@ -30,12 +30,13 @@ internal static class PcgConstants
     public const ulong Multiplier64 = 6364136223846793005UL;
     public const ulong DefaultIncrement64 = 1442695040888963407UL;
 
+#if !NETSTANDARD
     // ============================================================================
     // 128-bit state constants
     // ============================================================================
 
     /// <summary>
-    /// Default multiplier for 128-bit state: 
+    /// Default multiplier for 128-bit state:
     /// 2549297995355413924 * 2^64 + 4865540595714422341
     /// </summary>
     public static readonly UInt128 Multiplier128 = new(
@@ -57,6 +58,7 @@ internal static class PcgConstants
     /// Provides faster multiplication at cost of slightly reduced quality.
     /// </summary>
     public const ulong CheapMultiplier128 = 0xda942042e4dd58b5UL;
+#endif
 
     // ============================================================================
     // Default seeds (matching C++ reference)

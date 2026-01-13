@@ -1,3 +1,4 @@
+#if !NETSTANDARD
 using System.Runtime.CompilerServices;
 using Pcg.Internal;
 
@@ -119,3 +120,4 @@ public struct Pcg64OneSeq : IPcgRng<ulong>, IEquatable<Pcg64OneSeq>
     public static bool operator ==(Pcg64OneSeq left, Pcg64OneSeq right) => left.Equals(right);
     public static bool operator !=(Pcg64OneSeq left, Pcg64OneSeq right) => !left.Equals(right);
 }
+#endif

@@ -1,3 +1,4 @@
+#if !NETSTANDARD
 using System;
 using System.Runtime.CompilerServices;
 
@@ -133,3 +134,4 @@ internal struct Pcg64K32OneseqEngine : IEquatable<Pcg64K32OneseqEngine>
         return hash;
     }
 }
+#endif

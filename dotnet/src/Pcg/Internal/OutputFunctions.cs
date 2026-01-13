@@ -1,4 +1,6 @@
+#if !NETSTANDARD
 using System.Numerics;
+#endif
 using System.Runtime.CompilerServices;
 
 namespace Pcg.Internal;
@@ -21,7 +23,11 @@ internal static class OutputFunctions
         // XorShift: xor top half into bottom, then take upper 32 bits
         uint xorshifted = (uint)(((state >> 18) ^ state) >> 27);
         // Rotate right by rot
+#if !NETSTANDARD
         return BitOperations.RotateRight(xorshifted, rot);
+#else
+        return RotateRight(xorshifted, rot);
+#endif
     }
 
     /// <summary>
@@ -57,6 +63,7 @@ internal static class OutputFunctions
         return (uint)(xored >> (bottomspare - maxrandshift + rshift));
     }
 
+#if !NETSTANDARD
     /// <summary>
     /// XSL RR: XorShift Low bits (from high), then Random Rotate.
     /// Used by pcg64 family (128-bit state -> 64-bit output).
@@ -75,6 +82,7 @@ internal static class OutputFunctions
 
         return BitOperations.RotateRight(xored, rot);
     }
+#endif
 
     /// <summary>
     /// RXS M XS: Random XorShift, Multiply, XorShift.
@@ -168,6 +176,7 @@ internal static class OutputFunctions
         return result;
     }
 
+#if !NETSTANDARD
     /// <summary>
     /// XSL RR RR: Double rotate for 128-bit to 128-bit transformation.
     /// Used by pcg128_once_insecure.
@@ -188,4 +197,18 @@ internal static class OutputFunctions
 
         return new UInt128(hi_rotated, low_rotated);
     }
+#else
+    // Fallback implementations for netstandard2.1 where BitOperations is not available
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static uint RotateRight(uint value, int offset)
+    {
+        return (value >> offset) | (value << (32 - offset));
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private static ulong RotateRight(ulong value, int offset)
+    {
+        return (value >> offset) | (value << (64 - offset));
+    }
+#endif
 }

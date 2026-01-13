@@ -31,6 +31,7 @@ public interface IPcgRng<T> where T : unmanaged
     /// <param name="delta">Number of steps to go back.</param>
     void Backstep(ulong delta);
 
+#if !NETSTANDARD
     /// <summary>
     /// Minimum value that can be generated.
     /// </summary>
@@ -45,6 +46,7 @@ public interface IPcgRng<T> where T : unmanaged
     /// Period of the generator expressed as a power of two, i.e. period = 2^PeriodPow2.
     /// </summary>
     static abstract int PeriodPow2 { get; }
+#endif
 }
 
 /// <summary>

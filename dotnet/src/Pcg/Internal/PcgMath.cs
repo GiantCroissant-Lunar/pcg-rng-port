@@ -38,6 +38,7 @@ internal static class PcgMath
         return accMult * state + accPlus;
     }
 
+#if !NETSTANDARD
     /// <summary>
     /// Advances the 128-bit LCG state by delta steps.
     /// </summary>
@@ -61,6 +62,7 @@ internal static class PcgMath
 
         return accMult * state + accPlus;
     }
+#endif
 
     /// <summary>
     /// Calculates the distance between two states (how many steps from cur to target).
@@ -111,6 +113,7 @@ internal static class PcgMath
         return r % upperBound;
     }
 
+#if !NETSTANDARD
     /// <summary>
     /// Bounded random for 64-bit generators.
     /// </summary>
@@ -127,4 +130,5 @@ internal static class PcgMath
 
         return r % upperBound;
     }
+#endif
 }

@@ -1,3 +1,4 @@
+#if !NETSTANDARD
 using System;
 using System.Runtime.CompilerServices;
 
@@ -137,3 +138,4 @@ internal struct Pcg64C32FastEngine : IEquatable<Pcg64C32FastEngine>
         return hash;
     }
 }
+#endif

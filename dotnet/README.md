@@ -17,6 +17,15 @@ A .NET port of the [PCG (Permuted Congruential Generator)](http://www.pcg-random
 dotnet add package Pcg.Random
 ```
 
+## Supported Platforms
+
+| Target Framework | 32-bit Generators | 64-bit Generators | 128-bit Generators |
+|------------------|-------------------|-------------------|---------------------|
+| .NET 8.0+        | ✅                | ✅                | ✅                  |
+| .NET Standard 2.1| ✅                | ❌                | ❌                  |
+
+> **Note:** 64-bit and 128-bit generators require `UInt128`, which is only available in .NET 7+. On .NET Standard 2.1, only 32-bit generators (`Pcg32*`) are available.
+
 ## Quick Start
 
 ```csharp
@@ -40,12 +49,30 @@ rng.Backstep(500);    // Go back 500 values
 
 ## Generator Types
 
+### 32-bit Generators (All Platforms)
+
 | Type | State | Output | Streams | Best For |
 |------|-------|--------|---------|----------|
 | `Pcg32` | 64-bit | 32-bit | 2^63 | General use (recommended) |
 | `Pcg32OneSeq` | 64-bit | 32-bit | 1 | Single-stream applications |
 | `Pcg32Fast` | 64-bit | 32-bit | 0 | Maximum speed |
+| `Pcg32Unique` | 64-bit | 32-bit | unique | Auto-unique streams |
+
+### 64-bit Generators (.NET 7+ only)
+
+| Type | State | Output | Streams | Best For |
+|------|-------|--------|---------|----------|
 | `Pcg64` | 128-bit | 64-bit | 2^127 | 64-bit random values |
+| `Pcg64OneSeq` | 128-bit | 64-bit | 1 | Single-stream 64-bit |
+| `Pcg64Fast` | 128-bit | 64-bit | 0 | Maximum speed 64-bit |
+| `Pcg64Unique` | 128-bit | 64-bit | unique | Auto-unique streams |
+
+### Extended Generators (.NET 7+ only)
+
+| Type | Period | Output | Description |
+|------|--------|--------|-------------|
+| `Pcg64K32` | 2^2176 | 64-bit | Extended generator with huge period |
+| `Pcg64C32` | 2^2176 | 64-bit | Extended generator (cheap multiplier) |
 
 ## Compatibility
 

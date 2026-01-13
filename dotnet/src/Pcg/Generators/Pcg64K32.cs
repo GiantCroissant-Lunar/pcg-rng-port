@@ -1,3 +1,4 @@
+#if !NETSTANDARD
 using System;
 using System.Runtime.CompilerServices;
 using Pcg.Internal;
@@ -72,3 +73,4 @@ public struct Pcg64K32 : IPcgRng<ulong>, IEquatable<Pcg64K32>
 
     public static bool operator !=(Pcg64K32 left, Pcg64K32 right) => !left.Equals(right);
 }
+#endif

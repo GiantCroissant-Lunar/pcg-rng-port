@@ -1,3 +1,4 @@
+#if !NETSTANDARD
 using System;
 using System.Runtime.CompilerServices;
 using Pcg.Internal;
@@ -110,3 +111,4 @@ public struct Pcg128OnceInsecure : IPcgRng<UInt128>, ISettableStream<UInt128>, I
 
     public static bool operator !=(Pcg128OnceInsecure left, Pcg128OnceInsecure right) => !left.Equals(right);
 }
+#endif
