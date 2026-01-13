@@ -62,7 +62,7 @@ public struct Pcg64 : IPcgRng<ulong>, ISettableStream<UInt128>, IEquatable<Pcg64
     {
         // Ensure increment is odd (matches C++ stream_mixin initialization)
         _inc = (stream << 1) | UInt128.One;
-        
+
         // Initialize state: state_ = bump(state + increment())
         _state = seed + _inc;
         _state = Bump(_state);

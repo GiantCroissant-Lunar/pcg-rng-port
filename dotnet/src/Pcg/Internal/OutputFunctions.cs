@@ -42,8 +42,8 @@ internal static class OutputFunctions
             (sparebits - 5 >= 64) ? 5 :
             (sparebits - 4 >= 32) ? 4 :
             (sparebits - 3 >= 16) ? 3 :
-            (sparebits - 2 >= 4)  ? 2 :
-            (sparebits - 1 >= 1)  ? 1 :
+            (sparebits - 2 >= 4) ? 2 :
+            (sparebits - 1 >= 1) ? 1 :
             0;
 
         const int mask = (1 << opbits) - 1;
@@ -66,13 +66,13 @@ internal static class OutputFunctions
     {
         ulong hi = (ulong)(state >> 64);
         ulong lo = (ulong)state;
-        
+
         // XOR fold: xor high bits into low bits
         ulong xored = hi ^ lo;
-        
+
         // Rotation amount from high 6 bits of high half
         int rot = (int)(hi >> 58);
-        
+
         return BitOperations.RotateRight(xored, rot);
     }
 
@@ -141,7 +141,7 @@ internal static class OutputFunctions
         const int opbits = 4;  // for 32-bit
         const int mask = (1 << opbits) - 1;
         const int rshift = bits - opbits;  // 28
-        
+
         int shift = (int)((state >> rshift) & mask) + ((bits + opbits) / 2);  // shift in range [18, 33]
         state ^= state >> shift;
         state *= PcgConstants.Multiplier32;
@@ -160,7 +160,7 @@ internal static class OutputFunctions
         const int opbits = 5;  // for 64-bit
         const int mask = (1 << opbits) - 1;
         const int rshift = bits - opbits;  // 59
-        
+
         int shift = (int)((state >> rshift) & mask) + ((bits + opbits) / 2);  // shift in range [35, 66]
         state ^= state >> shift;
         state *= PcgConstants.Multiplier64;
@@ -177,15 +177,15 @@ internal static class OutputFunctions
     {
         ulong hi = (ulong)(state >> 64);
         ulong lo = (ulong)state;
-        
+
         // First rotation on low bits
         int rot1 = (int)(hi >> 58);
         ulong low_rotated = BitOperations.RotateRight(lo ^ hi, rot1);
-        
+
         // Second rotation on high bits
         int rot2 = (int)(lo >> 58);
         ulong hi_rotated = BitOperations.RotateRight(hi, rot2);
-        
+
         return new UInt128(hi_rotated, low_rotated);
     }
 }

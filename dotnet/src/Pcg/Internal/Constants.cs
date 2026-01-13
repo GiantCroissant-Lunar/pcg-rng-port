@@ -33,7 +33,7 @@ internal static class PcgConstants
     // ============================================================================
     // 128-bit state constants
     // ============================================================================
-    
+
     /// <summary>
     /// Default multiplier for 128-bit state: 
     /// 2549297995355413924 * 2^64 + 4865540595714422341
@@ -61,7 +61,7 @@ internal static class PcgConstants
     // ============================================================================
     // Default seeds (matching C++ reference)
     // ============================================================================
-    
+
     /// <summary>
     /// Default state initialization value: 0xcafef00dd15ea5e5
     /// </summary>
