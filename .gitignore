@@ -5,3 +5,6 @@ ref-projects/
 # Temporary files
 tmpclaude-*
 docs/_inbox/
+
+# CodeGraph local index
+.codegraph/
