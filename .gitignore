@@ -6,5 +6,8 @@ ref-projects/
 tmpclaude-*
 docs/_inbox/
 
+# Logs (transient benchmark run logs, tool output)
+*.log
+
 # CodeGraph local index
 .codegraph/
