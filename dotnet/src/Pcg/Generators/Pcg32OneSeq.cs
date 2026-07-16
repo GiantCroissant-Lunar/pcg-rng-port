@@ -43,6 +43,39 @@ public struct Pcg32OneSeq : IPcgRng<uint>, IEquatable<Pcg32OneSeq>
     }
 
     /// <summary>
+    /// Creates a <see cref="Pcg32OneSeq"/> whose internal LCG state is loaded directly from
+    /// <paramref name="state"/>, bypassing the PCG seeding ritual applied by
+    /// <see cref="Pcg32OneSeq(ulong)"/>.
+    /// </summary>
+    /// <param name="state">The raw 64-bit LCG state to install as the current state.</param>
+    /// <returns>A generator whose next <see cref="Next()"/> call emits from <paramref name="state"/>.</returns>
+    /// <remarks>
+    /// <para>
+    /// This factory exists for cross-runtime stream compatibility. The normal constructor
+    /// performs the canonical PCG seed ritual (<c>state = bump(seed + increment)</c>), so it
+    /// cannot reproduce the output stream of external implementations that load a raw seed
+    /// directly into the LCG state (for example the terrain-diffusion
+    /// <c>portable_rng._pcg64_next</c>). <see cref="FromRawState"/> lets a caller install any
+    /// state, including one derived to match another runtime's seeding and step-ordering
+    /// convention.
+    /// </para>
+    /// <para>
+    /// <see cref="Next()"/> emits the XSH-RR output of the <i>current</i> state and then
+    /// advances, so the caller is responsible for any pre-bump the target runtime's
+    /// advance/output ordering requires. For the terrain-diffusion portable PCG, loading
+    /// <c>unchecked(seed * Multiplier + Increment)</c> (one portable advance from the raw
+    /// seed) realigns the streams bit-for-bit. See <c>docs/portable_rng_compat.md</c> for the
+    /// full derivation and golden vectors.
+    /// </para>
+    /// </remarks>
+    public static Pcg32OneSeq FromRawState(ulong state)
+    {
+        Pcg32OneSeq rng = default;
+        rng._state = state;
+        return rng;
+    }
+
+    /// <summary>
     /// Minimum value that can be generated (always 0).
     /// </summary>
     public static uint MinValue => 0;
